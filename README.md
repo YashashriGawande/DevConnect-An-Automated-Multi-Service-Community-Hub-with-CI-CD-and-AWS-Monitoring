@@ -9,12 +9,12 @@
 
 # Tools and Technologies used
 
-Git
-Jenkins
-Docker
-Maven
-Kubernetes
-Terraform
-AWS 
-Graphana
-Prometheus
+- Git
+- Jenkins
+- Docker
+- Maven
+- Kubernetes
+- Terraform
+- AWS 
+- Graphana
+- Prometheus
