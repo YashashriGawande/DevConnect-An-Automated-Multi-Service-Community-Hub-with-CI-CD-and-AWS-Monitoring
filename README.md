@@ -12,7 +12,7 @@ DevConnect is a cloud-native community platform designed to bring together devel
 - Jenkins
 - Docker
 - Maven
-- Kubernetes
+- Amazon EKS
 - Terraform
 - AWS 
 - Graphana
