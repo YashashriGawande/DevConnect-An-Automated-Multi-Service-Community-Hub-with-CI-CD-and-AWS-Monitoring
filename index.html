@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevConnect</title>
+  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DevConnect</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarMain">
+      <form class="d-flex mx-auto w-50">
+        <div class="input-group w-100">
+          <span class="input-group-text"><i class="fas fa-search text-muted"></i></span>
+          <input class="form-control" type="search" placeholder="Search...">
+        </div>
+      </form>
+      <div class="d-flex">
+        <a href="#" class="btn btn-outline-light me-2">Login</a>
+        <a href="#" class="btn btn-light">Create Account</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Left Sidebar -->
+    <aside class="col-lg-2 col-md-3 p-3 sidebar">
+      <div class="card p-3 mb-4 shadow-sm">
+        <h6 class="fw-bold">
+          DEV Community is a <br />
+          community of <br />
+          <span class="text-primary">3,186,042 amazing developers</span>
+        </h6>
+        <p class="text-muted small">
+          We're a place where coders share, stay up-to-date and grow their careers.
+        </p>
+      </div>
+
+      <ul class="nav flex-column fs-6 fw-semibold">
+        <li class="nav-item"><a class="nav-link text-dark" href="#">🏡 Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">😎 About</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">🏷️ Tags</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">📝 Blogs</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">🛠️ Tools</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">📰 News</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#">📞 Contact</a></li>
+      </ul>
+
+      <!-- Other Section -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <h6 class="card-title"><strong>Other</strong></h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none">👍 Code of Conduct</a></li>
+            <li><a href="#" class="text-decoration-none">🧐 Privacy Policy</a></li>
+            <li><a href="#" class="text-decoration-none">👀 Terms of Use</a></li>
+          </ul>
+          <div class="d-flex justify-content-start flex-wrap gap-2 mt-3">
+            <a href="#"><i class="fab fa-x-twitter fa-lg"></i></a>
+            <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#"><i class="fab fa-github fa-lg"></i></a>
+            <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#"><i class="fab fa-twitch fa-lg"></i></a>
+            <a href="#"><i class="fab fa-discord fa-lg"></i></a>
+            <a href="#"><i class="fas fa-bug fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Tags Section -->
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title"><strong>Popular Tags</strong></h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none">#webdev</a></li>
+            <li><a href="#" class="text-decoration-none">#programming</a></li>
+            <li><a href="#" class="text-decoration-none">#javascript</a></li>
+            <li><a href="#" class="text-decoration-none">#beginners</a></li>
+            <li><a href="#" class="text-decoration-none">#ai</a></li>
+            <li><a href="#" class="text-decoration-none">#productivity</a></li>
+            <li><a href="#" class="text-decoration-none">#tutorial</a></li>
+            <li><a href="#" class="text-decoration-none">#devops</a></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+     <main class="col-lg-7 col-md-6 p-4">
+      <!-- Tabs -->
+      <ul class="nav nav-tabs mt-4" id="challengeTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active tab-button" id="relevant-tab" onclick="showTab('relevant')">Relevant</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link tab-button" id="latest-tab" onclick="showTab('latest')">Latest</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link tab-button" id="top-tab" onclick="showTab('top')">Top</button>
+        </li>
+      </ul>
+<!-- Tab Content -->
+<div class="tab-content mt-3" id="challengeTabsContent">
+<!-- Relevant Tab -->
+<div class="tab-pane fade show active" id="relevant" role="tabpanel">
+  <div class="card p-3">
+    <div class="d-flex align-items-center mb-2">
+      <span class="me-2">🔧</span>
+      <strong>DEV Challenges</strong>
+    </div>
+    <img src="images.png" alt="DevOps Challenge Banner" class="img-fluid rounded mb-3">
+    
+    <h5 class="fw-bold mb-2">Automate Your Infrastructure with DevOps Tools & Win!</h5>
+
+    <div class="border p-2 rounded bg-light mb-2">
+      <strong>Join the DevOps Automation Challenge:</strong> Build CI/CD pipelines, manage IaC, and monitor like a pro – Prizes worth $5,000!<br>
+      <small class="text-muted">dev.to staff for The DEV Team · May 29</small><br>
+      <small class="text-muted">#devops #cicd #infrastructure #monitoring</small>
+    </div>
+
+    <span class="text-muted">Ship faster. Automate smarter. 💻🚀</span>
+  </div>
+</div>
+
+
+        <!-- Blog-style Posts Section -->
+<section class="blog-cards mt-4">
+  <!-- Blog Post 1 -->
+  <div class="post-card">
+    <div class="post-header d-flex align-items-center mb-2">
+      <img src="user.png" class="rounded-circle me-2" alt="Avatar">
+      <div>
+        <strong>Anita Olsen</strong><br>
+        <small>May 27</small>
+      </div>
+    </div>
+    <h5 class="fw-bold mb-2">Do You Plan Ahead or Figure out Programs as You Are Writing Them?</h5>
+    <div class="tags mb-2">
+      <span class="badge bg-light text-primary">#discuss</span>
+      <span class="badge bg-light text-secondary">#programming</span>
+      <span class="badge bg-light text-secondary">#coding</span>
+    </div>
+    <div class="post-footer d-flex justify-content-between text-muted small">
+      <div>❤️ 🔁 👏 🙌 30 reactions &nbsp;&nbsp; 💬 14 comments</div>
+      <div>2 min read 🔖</div>
+    </div>
+  </div>
+
+  <!-- Blog Post 2 -->
+  <div class="post-card">
+    <div class="post-header d-flex align-items-center mb-2">
+      <img src="user.png" class="rounded-circle me-2" alt="Avatar">
+      <div>
+        <strong>Rizèl Scarlett</strong><br>
+        <small>May 28</small>
+      </div>
+    </div>
+    <h5 class="fw-bold mb-2">How to Choose a Conference Talk Topic</h5>
+    <div class="tags mb-2">
+      <span class="badge bg-light text-secondary">#devrel</span>
+      <span class="badge bg-light text-secondary">#career</span>
+      <span class="badge bg-light text-secondary">#productivity</span>
+      <span class="badge bg-light text-secondary">#publicspeaking</span>
+    </div>
+    <div class="post-footer d-flex justify-content-between text-muted small">
+      <div>❤️ 🔁 👏 🙌 18 reactions &nbsp;&nbsp; 💬 2 comments</div>
+      <div>8 min read 🔖</div>
+    </div>
+  </div>
+
+  <!-- Blog Post 3 -->
+  <div class="post-card">
+    <div class="post-header d-flex align-items-center mb-2">
+      <img src="user.png" class="rounded-circle me-2" alt="Avatar">
+      <div>
+        <strong>Sebastian Schürmann</strong><br>
+        <small>May 28</small>
+      </div>
+    </div>
+    <h5 class="fw-bold mb-2">I Was So Angry, I Built My Own</h5>
+    <div class="tags mb-2">
+      <span class="badge bg-light text-secondary">#tooling</span>
+      <span class="badge bg-light text-secondary">#programming</span>
+      <span class="badge bg-light text-secondary">#javascript</span>
+    </div>
+    <div class="post-footer d-flex justify-content-between text-muted small">
+      <div>❤️ 🔁 👏 🙌 16 reactions &nbsp;&nbsp; 💬 3 comments</div>
+      <div>3 min read 🔖</div>
+    </div>
+  </div>
+</section>
+
+        <div class="tab-pane fade" id="latest" role="tabpanel">
+
+          <!-- Latest Tab Content -->
+          <div class="card shadow-sm border-0 mb-4">
+            <div class="card-body">
+              <h5 class="card-title mb-3 d-flex align-items-center">
+                <i class="fa-solid fa-clock text-info me-2"></i> Latest DevConnect Updates
+              </h5>
+              <ul class="list-unstyled">
+                <li><i class="fa-solid fa-rocket me-2 text-primary"></i> CI/CD pipeline improvements for faster deployment.</li>
+                <li><i class="fa-solid fa-medal me-2 text-success"></i> New coding challenge: Terraform modules & state.</li>
+                <li><i class="fa-solid fa-video me-2 text-danger"></i> Webinar: Kubernetes monitoring with Grafana.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="top" role="tabpanel">
+
+          <!-- Top Tab Content -->
+          <div class="card shadow-sm border-0 mb-4">
+            <div class="card-body">
+              <h5 class="card-title mb-3 d-flex align-items-center">
+                <i class="fa-solid fa-fire text-danger me-2"></i> Trending Challenge
+              </h5>
+              <h6 class="fw-bold">Postmark Challenge: Inbox Innovators - $3,000 in Prizes</h6>
+              <div class="mt-2">
+                <span class="badge bg-secondary me-1">#devchallenge</span>
+                <span class="badge bg-secondary me-1">#postmarkchallenge</span>
+                <span class="badge bg-secondary me-1">#webdev</span>
+                <span class="badge bg-secondary">#api</span>
+              </div>
+              <a href="#" class="btn btn-outline-primary btn-sm mt-3">Join Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+   <aside class="sidebar col-lg-3">
+  <!-- Discuss Section -->
+  <div class="card border rounded p-3 shadow-sm w-100">
+    <h6 class="fw-bold text-dark">#Discuss</h6>
+    <p class="text-muted small">Discussion threads targeting the whole community</p>
+
+    <div class="discussion-item mb-3">
+      <div>🔧 Top DevOps Automation Tools in 2025<span class="badge bg-warning text-dark">New</span></div>
+    </div>
+    <div class="discussion-item mb-3">
+      <div>📊 Best Practices for Kubernetes Logging & Monitoring</div>
+      <small class="text-muted">2 comments</small>
+    </div>
+    <div class="discussion-item mb-3">
+      <div>💡 Terraform vs Pulumi – Which One Do You Use and Why?<span class="badge bg-warning text-dark">New</span></div>
+    </div>
+    <div class="discussion-item mb-3">
+      <div>🛠️ How Often Should You Update Docker Images? <span class="badge bg-warning text-dark">New</span></div>
+    </div>
+    <div class="discussion-item mb-3">
+      <div>📂 Managing Secrets in GitHub Actions</div>
+      <small class="text-muted">1 comment</small>
+    </div>
+  </div>
+
+  <!-- Trending Guides Section -->
+  <div class="card border rounded p-3 shadow-sm w-100 mt-3">
+    <h6 class="fw-bold text-lowercase mb-3">trending guides/resources</h6>
+
+    <div class="resource-item">Stop Using AWS.</div>
+    <div class="resource-item">Daily Logs for Devs: How a 5-Minute Habit Can 10x Your Weekly Output</div>
+    <div class="resource-item">Cursor is now free for Students</div>
+    <div class="resource-item">11 Courses to Learn System Design and Software Architecture in depth</div>
+    <div class="resource-item">12 Timeless Books Every Programmer Should Read</div>
+    <div class="resource-item">From 0 to 10K ⭐: How Open SaaS became the Free Boilerplate Devs Love</div>
+    <div class="resource-item">Turn Your React App Into an MCP Client in Minutes</div>
+    <div class="resource-item">I Built an MCP Server for DevTo (100% Open Source) 🎉</div>
+    <div class="resource-item">9 tricks that separate a pro Typescript developer from an noob 😎
+    <div class="resource-item">10 Must-Read AI and LLM Engineering Books for Developers in 2025</div>
+  </div>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script>
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+</body>
+</html>
