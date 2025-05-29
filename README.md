@@ -5,7 +5,7 @@
 
 DevConnect is a cloud-native community platform designed to bring together developers, tech enthusiasts, and professionals to share updates, insights, and discussions around the latest trends in technology.   
 
-# DevConnect
+# Architecture Diagram
 
 ![DevConnect Logo]([https://raw.githubusercontent.com/your-username/your-repo/main/logo.png](https://github.com/YashashriGawande/DevConnect-An-Automated-Multi-Service-Community-Hub-with-CI-CD-and-AWS-Monitoring/blob/master/Architecture%20Diagram.png))
 
