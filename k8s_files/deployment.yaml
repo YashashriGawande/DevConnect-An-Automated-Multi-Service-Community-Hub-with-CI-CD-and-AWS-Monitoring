@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: DevConnect-app
+  name: devconnect-app
   labels:
-    app: DevConnect-app
+    app: devconnect-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: DevConnect-app
+      app: devconnect-app
   template:
     metadata:
       labels:
-        app: DevConnect-app
+        app: devconnect-app
     spec:
       containers:
-      - name: DevConnect-container
+      - name: devconnect-container
         image: https://286395681879.dkr.ecr.us-east-1.amazonaws.com/devconnect:latest
         ports:
         - containerPort: 3000
