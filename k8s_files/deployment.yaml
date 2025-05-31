@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devconnect-app
+  name: pandacloud-app
   labels:
-    app: devconnect-app
+    app: pandacloud-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: devconnect-app
+      app: pandacloud-app
   template:
     metadata:
       labels:
-        app: devconnect-app
+        app: pandacloud-app
     spec:
       containers:
-      - name: devconnect-container
+      - name: pandacloud-container
         image: https://286395681879.dkr.ecr.us-east-1.amazonaws.com/devconnect:latest
         ports:
         - containerPort: 3000
