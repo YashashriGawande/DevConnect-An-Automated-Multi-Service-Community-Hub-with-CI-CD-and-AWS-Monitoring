@@ -12,15 +12,17 @@ DevConnect is a cloud-native community platform designed to bring together devel
 
 # Tools and Technologies used
 
-- Git
-- Jenkins
-- Docker
-- Maven
-- Amazon EKS
-- Terraform
-- AWS 
-- Graphana
-- Prometheus
+- Git :- Source code management
+- Jenkins:- An automation server used to manage the CI/CD pipeline
+- SonarQube :- A platform for continuous inspection of code quality and security vulnerabilities
+- Trivy :- A security vulnerability scanner specifically for Docker images
+- Docker:- A containerization platform used to package the application into lightweight containers
+- AWS ECR :- Docker container registry to store Docker images.
+- AWS EKS :- Container management platform.
+- AWS CLI:- Command-line tool to interact with AWS services.
+- Terraform :- Infrastructure as Code tool to create AWS infrastructure such as EC2 instances and EKS clusters.
+- Prometheus & Graphana :- Monitoring and alerting tools.
+  
 
 
 # Group Members 
