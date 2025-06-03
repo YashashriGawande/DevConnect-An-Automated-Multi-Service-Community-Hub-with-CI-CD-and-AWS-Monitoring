@@ -1,5 +1,4 @@
-# DevConnect-An-Automated-Multi-Service-Community-Hub-with-CI-CD-and-AWS-Monitoring
-
+# DevConnect :- An Automated Multi Service Community Hub with CI CD and AWS Monitoring
 
 # Introduction
 
@@ -22,6 +21,37 @@ DevConnect is a cloud-native community platform designed to bring together devel
 - AWS CLI:- Command-line tool to interact with AWS services.
 - Terraform :- Infrastructure as Code tool to create AWS infrastructure such as EC2 instances and EKS clusters.
 - Prometheus & Graphana :- Monitoring and alerting tools.
+
+# Pipeline Stages:
+
+1.	Git Checkout:
+This stage pulls the source code from a GitHub repository, which contains the devconnect project.
+
+2.	SonarQube Analysis:
+Performs static code analysis using SonarQube to check for code smells, bugs, and security vulnerabilities. It uses the pre-configured SonarQube scanner.
+
+3.	Quality Gate:
+Ensures that the code meets the defined quality standards using SonarQube’s Quality Gate. If the quality gate fails, the pipeline stops.
+
+4.	Trivy Security Scan:
+Scans the application’s directory for known vulnerabilities using Trivy. The scan results are stored in a file named trivy.txt.
+
+5.	Build Docker Image:
+This stage builds the Docker image for the application using the Dockerfile found in the repository. The image is tagged based on the user-defined ECR repository name.
+
+6.	Create ECR Repository:
+The pipeline checks whether the specified ECR repository exists in the AWS account. If not, it creates the repository automatically. This step ensures that the Docker image has a valid destination for storage.
+
+7.	Tag & Push Docker Image to AWS ECR:
+The Docker image is tagged with both a unique build number and the latest tag. Afterward, the image is pushed to the specified ECR repository in the user's AWS account.
+
+8.	Delete Docker Images from Jenkins Server:
+Once the images are pushed to ECR, the unused docker images will be deleted to avoid storage issues.
+
+9.	Create ArgoCD, Grafana & Prometheus:
+The pipeline will create ArgoCD, Grafana & Prometheus. ArgoCD will be used to deploy Docker image from ECR. Grafana & Prometheus will be used for monitoring the application.
+
+
   
 
 
