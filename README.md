@@ -7,6 +7,7 @@ DevConnect is a cloud-native community platform designed to bring together devel
 
 # Architecture Diagram
 
+![Architecture Diagram](https://github.com/user-attachments/assets/c2ea85a3-aa41-4a39-894c-4cfe5595d76e)
 
 
 # Tools and Technologies used
