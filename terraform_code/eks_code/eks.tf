@@ -21,7 +21,7 @@ module "eks" {
   subnet_ids               = module.vpc.private_subnets
 
   eks_managed_node_groups = {
-    dev-node = {
+    panda-node = {
       min_size     = 2
       max_size     = 4
       desired_size = 2
@@ -30,7 +30,7 @@ module "eks" {
       capacity_type  = "SPOT"
 
       tags = {
-        ExtraTag = "dev_Node"
+        ExtraTag = "Panda_Node"
       }
     }
   }
