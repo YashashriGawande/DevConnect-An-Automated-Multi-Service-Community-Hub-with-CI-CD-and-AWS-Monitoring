@@ -54,21 +54,12 @@ resource "aws_security_group" "my-sg" {
 
   # Port 3000 is required for Grafana
   ingress {
-    description     = "Grafana Port"
+    description     = "NPM Port"
     from_port       = 3000
     to_port         = 3000
     protocol        = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-  }  
-
- # Port 5000 is required for NPM
- ingress {
-    description     = "NPM Port"
-    from_port       = 5000
-    to_port         = 5000
-    protocol        = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }  
+  }   
 
   # Port 6443 is required for KubeAPIServer
   ingress {
