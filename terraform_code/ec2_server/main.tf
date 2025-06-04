@@ -61,6 +61,15 @@ resource "aws_security_group" "my-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }  
 
+ # Port 5000 is required for NPM
+ ingress {
+    description     = "NPM Port"
+    from_port       = 5000
+    to_port         = 5000
+    protocol        = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }  
+
   # Port 6443 is required for KubeAPIServer
   ingress {
     description     = "Kube API Server"
