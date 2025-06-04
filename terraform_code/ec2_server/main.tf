@@ -13,7 +13,7 @@ provider "aws" {
 
 # STEP1: CREATE SG
 resource "aws_security_group" "my-sg" {
-  name        = "JENKINS-SERVER-SG"
+  name        = "JENKINS-SERVER-SG-V9"
   description = "Jenkins Server Ports"
   
   # Port 22 is required for SSH Access
@@ -54,7 +54,7 @@ resource "aws_security_group" "my-sg" {
 
   # Port 3000 is required for Grafana
   ingress {
-    description     = "NPM Port"
+    description     = "Grafana Port"
     from_port       = 3000
     to_port         = 3000
     protocol        = "tcp"
