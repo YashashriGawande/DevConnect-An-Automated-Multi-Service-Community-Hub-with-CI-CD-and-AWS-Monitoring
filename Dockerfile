@@ -1,3 +1,12 @@
+FROM node:alpine
+WORKDIR /app
+COPY . .
+RUN npm install -g http-server
+EXPOSE 3000
+CMD ["http-server", "-p", "3000"]
+
+
+
 # Use Node.js Alpine base image
 #FROM node:alpine
 
@@ -19,13 +28,3 @@
 # Define the command to start your application (replace "start" with the actual command to start your app)
 #CMD ["npm", "start"]
 
-
-
-
-
-FROM node:alpine
-WORKDIR /app
-COPY . .
-RUN npm install -g http-server
-EXPOSE 3000
-CMD ["http-server", "-p", "3000"]
