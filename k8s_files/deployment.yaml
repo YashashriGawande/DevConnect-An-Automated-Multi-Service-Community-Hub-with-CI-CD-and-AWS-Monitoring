@@ -1,4 +1,4 @@
-# Deployment for PandaCloud App
+# Deployment for devconnect App
 apiVersion: apps/v1
 kind: Deployment
 metadata:
