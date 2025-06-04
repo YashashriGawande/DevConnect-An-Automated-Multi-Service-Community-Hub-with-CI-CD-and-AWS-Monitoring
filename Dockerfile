@@ -6,25 +6,26 @@ EXPOSE 3000
 CMD ["http-server", "-p", "5000"]
 
 
+# Use Debian-based Node.js image for better compatibility
+FROM node:18-slim
 
-# Use Node.js Alpine base image
-#FROM node:alpine
+# Set working directory inside the container
+WORKDIR /app
 
-# Create and set the working directory inside the container
-#WORKDIR /app
+# Copy only dependency files first (for caching)
+COPY package*.json ./
 
-# Copy package.json and package-lock.json to the working directory
-#COPY package.json package-lock.json /app/
+# Install app dependencies
+# --force helps resolve peer dep conflicts and ensures ajv compatibility
+RUN npm install --force --loglevel=error
 
-# Install dependencies
-#RUN npm install
+# Copy the full application code
+COPY . .
 
-# Copy the entire codebase to the working directory
-#COPY . /app/
+# Expose the port your app uses (React dev server default)
+EXPOSE 5000
 
-# Expose the port your container app
-#EXPOSE 3000    
-
-# Define the command to start your application (replace "start" with the actual command to start your app)
-#CMD ["npm", "start"]
+# Start the application
+ENV PORT=5000
+CMD ["npm", "start"]
 
