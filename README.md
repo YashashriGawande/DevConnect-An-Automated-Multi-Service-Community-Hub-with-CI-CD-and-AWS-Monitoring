@@ -53,8 +53,3 @@ The pipeline will create ArgoCD, Grafana & Prometheus. ArgoCD will be used to de
 
 
   
-
-
-# Group Members 
-- Pooja Gaikwad
-- Yashashri Gawande
