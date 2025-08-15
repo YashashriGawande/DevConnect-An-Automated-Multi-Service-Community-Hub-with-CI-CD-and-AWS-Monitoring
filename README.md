@@ -53,6 +53,11 @@ The pipeline will create ArgoCD, Grafana & Prometheus. ArgoCD will be used to de
 
 <img width="960" height="538" alt="5  JenkinsPipeline_created" src="https://github.com/user-attachments/assets/fa751523-9abb-430b-affa-3e6fbab406b4" />
 
+# Frontend
+
+<img width="960" height="540" alt="12  DevConnect_site_deployed" src="https://github.com/user-attachments/assets/4688d264-6fa6-4714-8b8a-ff3a26e234ef" />
+
+
 
 
   
