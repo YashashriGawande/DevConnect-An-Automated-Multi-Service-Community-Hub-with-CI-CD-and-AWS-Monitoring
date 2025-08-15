@@ -51,6 +51,111 @@ Once the images are pushed to ECR, the unused docker images will be deleted to a
 9.	Create ArgoCD, Grafana & Prometheus:
 The pipeline will create ArgoCD, Grafana & Prometheus. ArgoCD will be used to deploy Docker image from ECR. Grafana & Prometheus will be used for monitoring the application.
 
+## Build Pipeline
+
+pipeline {
+    agent any
+
+	  parameters {
+        string(name: 'ECR_REPO_NAME', defaultValue: 'devconnect', description: 'Enter repository name')
+        string(name: 'AWS_ACCOUNT_ID', defaultValue: '123456789', description: 'Enter AWS Account ID') // Added missing quote
+     }
+
+     environment {
+        SCANNER_HOME = tool 'SonarQube Scanner'
+
+     }
+
+     stages {
+           stage('1. Git Checkout') {
+                steps {
+                     git 'https://github.com/YashashriGawande/DevConnect-An-Automated-Multi-Service-Community-Hub-with-CI-CD-and-AWS-Monitoring.git'
+                
+                }
+            }
+    
+            stage('2. SonarQube Analysis') {
+                 steps {
+                      withSonarQubeEnv ('sonar-server') {
+                          sh """
+                          $SCANNER_HOME/bin/sonar-scanner \
+                          -Dsonar.projectName=devconnect \
+                          -Dsonar.projectKey=devconnect \
+                           """
+                        }
+                 }
+             }
+            
+            stage('3. SonarQube Quality Gate') {
+                steps {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+                }
+            }
+            
+            stage('4. Trivy Scan') {
+                 steps {
+                     sh "trivy fs . > trivy-scan-results.txt"
+                  }
+            }
+             
+             stage('5. Build Docker Image') {
+                  steps {
+                       sh "docker build -t ${params.ECR_REPO_NAME} ."
+                  }
+             }
+         
+             stage('6. Create ECR repo') {
+                  steps {
+                       withCredentials([string(credentialsId: 'access-key', variable: 'AWS_ACCESS_KEY'), string(credentialsId: 'secret-key', variable: 'AWS_SECRET_KEY')]) {
+                       sh """
+                       aws configure set aws_access_key_id $AWS_ACCESS_KEY
+                       aws configure set aws_secret_access_key $AWS_SECRET_KEY
+                       aws ecr describe-repositories --repository-names ${params.ECR_REPO_NAME} --region us-east-1 || \
+                       aws ecr create-repository --repository-name ${params.ECR_REPO_NAME} --region us-east-1
+                       """
+                       }
+                           
+                     }    
+             }
+
+             stage('7. Login to ECR & tag image') {
+                  steps {
+                       withCredentials([string(credentialsId: 'access-key', variable: 'AWS_ACCESS_KEY'), 
+                                 string(credentialsId: 'secret-key', variable: 'AWS_SECRET_KEY')]) {
+                       sh """
+                       aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com
+                       docker tag ${params.ECR_REPO_NAME} ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:${BUILD_NUMBER}
+                       docker tag ${params.ECR_REPO_NAME} ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:latest
+                       """
+                       }
+                  }
+             }
+        
+             stage('8. Push image to ECR') {
+                  steps {
+                       withCredentials([string(credentialsId: 'access-key', variable: 'AWS_ACCESS_KEY'), 
+                                 string(credentialsId: 'secret-key', variable: 'AWS_SECRET_KEY')]) {
+                        sh """
+                        docker push ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:${BUILD_NUMBER}
+                        docker push ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:latest
+                        """
+                        }
+                  }
+             }
+        
+             stage('9. Cleanup Images') {
+                  steps {
+                       sh """
+                       docker rmi ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:${BUILD_NUMBER}
+                       docker rmi ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:latest
+		               docker images
+                       """
+                  }
+             }
+     }
+}
+
+
 <img width="960" height="538" alt="5  JenkinsPipeline_created" src="https://github.com/user-attachments/assets/fa751523-9abb-430b-affa-3e6fbab406b4" />
 
 # Deployment Pipeline
