@@ -2,7 +2,7 @@
 
 # Introduction
 
-DevConnect is a cloud-native community platform designed to bring together developers, tech enthusiasts, and professionals to share updates, insights, and discussions around the latest trends in technology.   
+The project aims to develop DevConnect, a cloud-native, containerized community platform built to enable seamless collaboration among developers and tech professionals. It automates the end-to-end application lifecycle using CI/CD pipelines implemented with Jenkins and uses Docker for containerization. The platform leverages AWS services like ECR and EKS for scalable deployment and uses Terraform to provision the entire infrastructure as code. SonarQube and Trivy are integrated to ensure code quality and container image security. Prometheus and Grafana provide real-time monitoring and performance visualization. All infrastructure changes are detected, validated, and applied through automated workflows.  
 
 # Architecture Diagram
 
