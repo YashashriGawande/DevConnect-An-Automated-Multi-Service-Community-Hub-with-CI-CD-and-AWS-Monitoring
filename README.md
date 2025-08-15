@@ -53,6 +53,7 @@ The pipeline will create ArgoCD, Grafana & Prometheus. ArgoCD will be used to de
 
 ## Build Pipeline
 
+```groovy
 pipeline {
     agent any
 
@@ -154,6 +155,7 @@ pipeline {
              }
      }
 }
+```
 
 
 <img width="960" height="538" alt="5  JenkinsPipeline_created" src="https://github.com/user-attachments/assets/fa751523-9abb-430b-affa-3e6fbab406b4" />
