@@ -51,5 +51,8 @@ Once the images are pushed to ECR, the unused docker images will be deleted to a
 9.	Create ArgoCD, Grafana & Prometheus:
 The pipeline will create ArgoCD, Grafana & Prometheus. ArgoCD will be used to deploy Docker image from ECR. Grafana & Prometheus will be used for monitoring the application.
 
+<img width="960" height="538" alt="5  JenkinsPipeline_created" src="https://github.com/user-attachments/assets/fa751523-9abb-430b-affa-3e6fbab406b4" />
+
+
 
   
