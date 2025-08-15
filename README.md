@@ -22,7 +22,7 @@ The project aims to develop DevConnect, a cloud-native, containerized community 
 - Terraform :- Infrastructure as Code tool to create AWS infrastructure such as EC2 instances and EKS clusters.
 - Prometheus & Graphana :- Monitoring and alerting tools.
 
-# Pipeline Stages:
+# Pipeline Stages
 
 1.	Git Checkout:
 This stage pulls the source code from a GitHub repository, which contains the devconnect project.
