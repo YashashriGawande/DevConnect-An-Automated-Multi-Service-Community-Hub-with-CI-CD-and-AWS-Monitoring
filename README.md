@@ -22,6 +22,33 @@ The project aims to develop DevConnect, a cloud-native, containerized community 
 - Terraform :- Infrastructure as Code tool to create AWS infrastructure such as EC2 instances and EKS clusters.
 - Prometheus & Graphana :- Monitoring and alerting tools.
 
+# Configuration
+## AWS Setup
+
+1. IAM User: Create an IAM user and generate the access and secret keys to configure your machine with AWS.
+2. Key Pair: Create a key pair named key for accessing your EC2 instances.
+   
+# SonarQube Configuration
+
+1. Login Credentials: Use admin for both username and password.
+2. Generate SonarQube Token:
+- Create a token under Administration → Security → Users → Tokens.
+- Save the token for integration with Jenkins.
+
+# Jenkins Configuration
+
+1. Add Jenkins Credentials:
+
+Add the SonarQube token, AWS access key, and secret key in Manage Jenkins → Credentials → System → Global credentials.
+
+2. Install Required Plugins:
+
+Install plugins such as SonarQube Scanner, NodeJS, Docker, and Prometheus metrics under Manage Jenkins → Plugins.
+
+3. Global Tool Configuration:
+
+Set up tools like JDK 17, SonarQube Scanner, NodeJS, and Docker under Manage Jenkins → Global Tool Configuration.
+
 # Pipeline Stages
 
 1.	Git Checkout:
