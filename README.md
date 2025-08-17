@@ -31,6 +31,7 @@ The project aims to develop DevConnect, a cloud-native, containerized community 
 # SonarQube Configuration
 
 1. Login Credentials: Use admin for both username and password.
+   
 2. Generate SonarQube Token:
 - Create a token under Administration → Security → Users → Tokens.
 - Save the token for integration with Jenkins.
@@ -38,16 +39,13 @@ The project aims to develop DevConnect, a cloud-native, containerized community 
 # Jenkins Configuration
 
 1. Add Jenkins Credentials:
-
-Add the SonarQube token, AWS access key, and secret key in Manage Jenkins → Credentials → System → Global credentials.
+- Add the SonarQube token, AWS access key, and secret key in Manage Jenkins → Credentials → System → Global credentials.
 
 2. Install Required Plugins:
-
-Install plugins such as SonarQube Scanner, NodeJS, Docker, and Prometheus metrics under Manage Jenkins → Plugins.
+- Install plugins such as SonarQube Scanner, NodeJS, Docker, and Prometheus metrics under Manage Jenkins → Plugins.
 
 3. Global Tool Configuration:
-
-Set up tools like JDK 17, SonarQube Scanner, NodeJS, and Docker under Manage Jenkins → Global Tool Configuration.
+- Set up tools like JDK 17, SonarQube Scanner, NodeJS, and Docker under Manage Jenkins → Global Tool Configuration.
 
 # Pipeline Stages
 
